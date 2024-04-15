@@ -33,7 +33,7 @@ export const fetchMovies = (searchTerm) => {
         dispatch(fetchMoviesRequest()); // Dispatching request action
         try {
             const apiKey = process.env.REACT_APP_API_KEY; // Accessing API key from environment variables
-            const response = await fetch(`http://www.omdbapi.com/?s=${encodeURIComponent(searchTerm)}&apikey=${apiKey}`);
+            const response = await fetch(`https://www.omdbapi.com/?s=${encodeURIComponent(searchTerm)}&apikey=${apiKey}`);
             const data = await response.json();
             if (data.Response === "True") {
                 dispatch(fetchMoviesSuccess(data.Search)); // Dispatching success action with the data
